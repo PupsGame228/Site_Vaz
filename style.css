@@ -1,0 +1,337 @@
+/* 
+ * Основные стили для каталога автомобилей ВАЗ
+ * Создано: 2024
+ */
+
+/* Сброс стандартных отступов и установка box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Основные стили тела документа */
+body {
+    background: #f5f5f5;
+    color: #333;
+    min-height: 100vh;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+/* Контейнер для центрирования контента */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Стили шапки сайта */
+header {
+    text-align: center;
+    padding: 20px 0;
+    margin-bottom: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.subtitle {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Стили секции поиска */
+.search-section {
+    background: #fff;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.search-box {
+    display: flex;
+    max-width: 700px;
+    margin: 0 auto;
+    gap: 15px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 15px 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+    color: #333;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+input::placeholder {
+    color: #95a5a6;
+}
+
+button {
+    padding: 15px 30px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #2980b9;
+}
+
+/* Стили секции результатов */
+.results-section {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.car-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Стили для фотографии автомобиля */
+.car-photo-container {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+}
+
+.car-photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    color: white;
+}
+
+.photo-overlay h2 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.photo-overlay .car-nickname {
+    font-size: 1.2rem;
+    color: #3498db;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.photo-overlay .car-years {
+    font-size: 1rem;
+    color: #ecf0f1;
+}
+
+/* Стили для информации об автомобиле */
+.car-info {
+    padding: 30px;
+}
+
+.info-section {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.info-section:last-child {
+    border-bottom: none;
+}
+
+.section-title {
+    font-size: 1.3rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.section-content {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.highlight {
+    background: #ecf0f1;
+    padding: 12px;
+    border-radius: 6px;
+    margin-top: 8px;
+    border-left: 3px solid #3498db;
+}
+
+/* Стили для технических характеристик */
+.car-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.stat {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    border-top: 3px solid #3498db;
+}
+
+.stat-title {
+    font-size: 0.85rem;
+    color: #7f8c8d;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.stat-value {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+/* Стили для сообщения об ошибке */
+.error-message {
+    background: #fdeaea;
+    border: 1px solid #f5c6cb;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+    display: none;
+}
+
+.hint {
+    color: #7f8c8d;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.95rem;
+}
+
+/* Стили для списка автомобилей */
+.car-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.car-item {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.car-item:hover {
+    background: #f8f9fa;
+    border-color: #3498db;
+    transform: translateY(-3px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.car-item-title {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.car-item-subtitle {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Стили подвала */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #95a5a6;
+    font-size: 0.9rem;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.model-badge {
+    display: inline-block;
+    background: #3498db;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .search-box {
+        flex-direction: column;
+    }
+    
+    .car-photo-container {
+        height: 350px;
+    }
+    
+    .car-info {
+        padding: 20px;
+    }
+    
+    .car-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .photo-overlay h2 {
+        font-size: 1.8rem;
+    }
+    
+    .photo-overlay .car-nickname {
+        font-size: 1.1rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+}
